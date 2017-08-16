@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const PropertiesCard = function (props) {
-  console.log(props.property, 'props')
   const property = props.property
   return (
     <div className="columns">
