@@ -8,7 +8,8 @@ import createBrowserHistory from 'history/createBrowserHistory';
 
 import App from './components/App';
 import PropertiesList from './components/propertiesList.js';
-import PropertiesPage from './components/PropertiesPage.js';
+import PropertiesCard from './components/PropertiesCard';
+import NewProperty from './components/NewProperty';
 import reducer from './reducer/reducer';
 
 const store = createStore(reducer, applyMiddleware(thunk));
@@ -20,7 +21,8 @@ ReactDOM.render(
       <App>
         <Switch>
           <Route exact path='/' component={PropertiesList} />
-          <Route path='/properties/:properties_id' component={PropertiesPage} />
+          <Route path='/properties/:properties_id' component={PropertiesCard} />
+          <Route path='/newProperty' component={NewProperty} />
         </Switch>
       </App>
     </Router>
