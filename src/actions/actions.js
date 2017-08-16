@@ -4,12 +4,13 @@ import {ROOT} from '../../config';
 
 // fetchProperties
 export function fetchProperties() {
+    console.log('attempting to fetch properties');
     return function (dispatch) {
         dispatch(fetchPropertiesRequest());
         axios.get(`${ROOT}/properties`)
         .then(res => {
             console.log('fetchPropertiesres data: ', res.data);
-            dispatch(fetchPropertiesSuccess(res.data.properties));
+            dispatch(fetchPropertiesSuccess(res.data));
         })
         .catch(err => {
             console.log(err);
@@ -24,10 +25,11 @@ export function fetchPropertiesRequest () {
     };
 }
 
-export function fetchPROPERTIESSuccess (properties) {
+export function fetchPropertiesSuccess (properties) {
+    console.log('HELLO');
     return {
         type: types.FETCH_PROPERTIES_SUCCESS,
-        payload: articles
+        payload: properties
     };
 }
 
@@ -60,10 +62,10 @@ export function fetchPropertiesByIDRequest (id) {
     };
 }
 
-export function fetchPropertiesByIDSuccess (article) {
+export function fetchPropertiesByIDSuccess (property) {
     return {
         type: types.FETCH_PROPERTIES_BY_ID_SUCCESS,
-        payload: article
+        payload: property
     };
 }
 
