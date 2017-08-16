@@ -6,11 +6,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import createBrowserHistory from 'history/createBrowserHistory';
 
-// import App from './components/App';
-// import ArticleList from './components/ArticleList';
-// import ArticlePage from './components/ArticlePage';
-// import TopicPage from './components/TopicPage';
-// import reducer from './reducer/reducer';
+import App from './components/App';
+import PropertiesList from './components/propertiesList.js';
+import PropertiesPage from './components/PropertiesPage.js';
+import reducer from './reducer/reducer';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 const history = createBrowserHistory();
@@ -20,9 +19,8 @@ ReactDOM.render(
     <Router history={history}>
       <App>
         <Switch>
-          {/* <Route exact path='/' component={ArticleList} />
-          <Route path='/articles/:article_id' component={ArticlePage} />
-          <Route path='/topics/:topic_id/articles' component={TopicPage} /> */}
+          <Route exact path='/' component={PropertiesList} />
+          <Route path='/properties/:properties_id' component={PropertiesPage} />
         </Switch>
       </App>
     </Router>
