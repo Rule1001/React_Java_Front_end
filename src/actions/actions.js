@@ -11,7 +11,6 @@ export function fetchProperties() {
             dispatch(fetchPropertiesSuccess(res.data));
         })
         .catch(err => {
-            console.log(err);
             dispatch(fetchPropertiesError(err));
         });
     };
@@ -46,7 +45,6 @@ export function fetchPropertiesByID (id) {
             dispatch(fetchPropertiesByIDSuccess(res.data));
         })
         .catch(err => {
-            console.log(err);
             dispatch(fetchPropertiesByIDError(err));
         });
     };
@@ -69,6 +67,37 @@ export function fetchPropertiesByIDSuccess (property) {
 export function fetchPropertiesByIDError (error) {
     return {
         type: types.FETCH_PROPERTIES_BY_ID_ERROR,
+        payload: error
+    };
+}
+
+// addnewProperty
+export function addProperty (data) {
+    return function (dispatch) {
+        dispatch(addPropertyPost(data));
+        axios.post(`${ROOT}/properties/-1`, data)
+            .then(res => {
+                console.log('new property res: ', res);
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(addPropertyError(err));
+            });
+    };
+}
+
+export function addPropertyPost (property_type, bedrooms, location) {
+    return {
+        type: types.ADD_PROPERTY_POST,
+        property_type: property_type,
+        bedrooms: bedrooms,
+        location: location
+    };
+}
+
+export function addPropertyError (error) {
+    return {
+        type: types.ADD_PROPERTY_ERROR,
         payload: error
     };
 }
