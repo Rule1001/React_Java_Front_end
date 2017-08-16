@@ -80,7 +80,7 @@ export function addProperty (data) {
                 console.log('new property res: ', res);
             })
             .catch(err => {
-                console.log(err);
+                alert(err.response.data.errors[0].defaultMessage);
                 dispatch(addPropertyError(err));
             });
     };
@@ -95,9 +95,9 @@ export function addPropertyPost (property_type, bedrooms, location) {
     };
 }
 
-export function addPropertyError (error) {
+export function addPropertyError (err) {
     return {
         type: types.ADD_PROPERTY_ERROR,
-        payload: error
+        payload: err
     };
 }
