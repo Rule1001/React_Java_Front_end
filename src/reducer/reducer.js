@@ -55,5 +55,7 @@ function reducer (prevState = initialState, action) {
     return newState;
   }
 
+}
+
 
 export default reducer;
