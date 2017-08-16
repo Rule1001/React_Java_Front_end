@@ -55,6 +55,8 @@ function reducer (prevState = initialState, action) {
     return newState;
   }
 
+  return prevState;
+
 }
 
 
