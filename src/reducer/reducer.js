@@ -7,10 +7,10 @@ const initialState = {
   error: null,
 };
 
-function reducer (prevState = initialState, action) {
+function reducer(prevState = initialState, action) {
   if (!action) return prevState;
 
-// fetchProperties
+  // fetchProperties
   if (action.type === types.FETCH_PROPERTIES_REQUESTS) {
     const newState = Object.assign({}, prevState);
     newState.loading = true;
@@ -55,9 +55,31 @@ function reducer (prevState = initialState, action) {
     return newState;
   }
 
+  // addNewProperty
+  if (action.type === types.ADD_TV_POST) {
+    const newState = Object.assign({}, prevState);
+    newState.loading = true;
+    return newState;
+  }
+
+  if (action.type === types.ADD_TV_SUCCESS) {
+    const newState = Object.assign({}, prevState);
+    newState.newTv = newState.newTv.push(action.payload);
+    newState.loading = false;
+    return newState;
+  }
+
+  if (action.type === types.ADD_TV_ERRORS) {
+    const newState = Object.assign({}, prevState);
+    newState.tvs = [];
+    newState.selectedTvs = {};
+    newState.newTv = {},
+      newState.loading = false;
+    newState.error = action.error;
+    return newState;
+  }
+
   return prevState;
-
 }
-
 
 export default reducer;
