@@ -4,12 +4,10 @@ import {ROOT} from '../../config';
 
 // fetchProperties
 export function fetchProperties() {
-    console.log('attempting to fetch properties');
     return function (dispatch) {
         dispatch(fetchPropertiesRequest());
         axios.get(`${ROOT}/properties`)
         .then(res => {
-            console.log('fetchPropertiesres data: ', res.data);
             dispatch(fetchPropertiesSuccess(res.data));
         })
         .catch(err => {
@@ -26,7 +24,6 @@ export function fetchPropertiesRequest () {
 }
 
 export function fetchPropertiesSuccess (properties) {
-    console.log('HELLO');
     return {
         type: types.FETCH_PROPERTIES_SUCCESS,
         payload: properties
