@@ -32,6 +32,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'public'),
     publicPath: '/js/',
     port: 3000,
+    disableHostCheck : false,
     historyApiFallback: true
   }
 };
