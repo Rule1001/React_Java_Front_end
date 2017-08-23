@@ -7,28 +7,17 @@ node {
       git 'https://github.com/Rule1001/React_Java_Front_end.git'
    }
 
-   stage('npm install') {
-       sh "npm i"
-   }
-
-   stage('start') {
-      sh "webpack-dev-server"
-   }
-   stage('Package') {
-      sh "mvn -Dmaven.test.failure.ignore package"
-   }
-
    stage('Docker Build') {
-      sh "docker build -t myproperties ."
+      sh "docker build -t myfrontend ."
    }
 
    stage('Stop app') {
-      sh "docker stop myproperties || true"
-      sh "docker rm myproperties || true"
+      sh "docker stop myfrontend || true"
+      sh "docker rm myfrontend || true"
    }
 
    stage('Docker Deploy') {
-      sh "docker run -d --name myproperties -p 8081:9090 myproperties"
+      sh "docker run -d --name myfrontend -p 80:3000 myfrontend"
    }
 
 }
