@@ -12,4 +12,4 @@ COPY package.json /home/web/
 WORKDIR "/home/web"
 RUN npm install webpack-dev-server --save-dev
 RUN npm install
-ENTRYPOINT ["webpack-dev-server"]
+ENTRYPOINT ["/home/web/node_modules/.bin/webpack-dev-server"]
