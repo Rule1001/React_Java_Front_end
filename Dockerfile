@@ -16,4 +16,4 @@ COPY .eslintrc /home/web/
 WORKDIR "/home/web"
 RUN npm install webpack-dev-server --save-dev
 RUN npm install
-ENTRYPOINT ["node_modules/.bin/webpack-dev-server", "--host", "0.0.0.0"]
+ENTRYPOINT ["node_modules/.bin/webpack-dev-server"]
