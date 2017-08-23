@@ -77,7 +77,8 @@ export function addProperty (data) {
         dispatch(addPropertyPost(data));
         axios.post(`${ROOT}/properties/-1`, data)
             .then(res => {
-                console.log('new property res: ', res);
+                console.log('new property res: ', res)
+                //this.setState({events: response.data})
             })
             .catch(err => {
                 alert(err.response.data.errors[0].defaultMessage);
