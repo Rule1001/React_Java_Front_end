@@ -7,8 +7,12 @@ node {
       git 'https://github.com/Rule1001/React_Java_Front_end.git'
    }
 
-   stage('Clean') {
-      sh "mvn -Dmaven.test.failure.ignore clean"
+   stage('npm install') {
+       sh "npm i"
+   }
+
+   stage('start') {
+      sh "webpack-dev-server"
    }
    stage('Package') {
       sh "mvn -Dmaven.test.failure.ignore package"
