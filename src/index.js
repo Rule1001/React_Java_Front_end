@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import App from './components/App';
-import PropertiesList from './components/propertiesList.js';
+import PropertiesList from './components/PropertiesList';
 import PropertiesCard from './components/PropertiesCard';
 import NewProperty from './components/NewProperty';
 import reducer from './reducer/reducer';
