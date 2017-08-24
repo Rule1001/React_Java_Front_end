@@ -9,6 +9,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import App from './components/App';
 import PropertiesList from './components/PropertiesList';
 import PropertiesCard from './components/PropertiesCard';
+import PropertiesPage from './components/PropertiesPage';
 import NewProperty from './components/NewProperty';
 import reducer from './reducer/reducer';
 
@@ -21,7 +22,7 @@ ReactDOM.render(
       <App>
         <Switch>
           <Route exact path='/' component={PropertiesList} />
-          <Route path='/properties/:properties_id' component={PropertiesCard} />
+          <Route path='/properties/:propertyId' component={PropertiesPage} />
           <Route path='/newProperty' component={NewProperty} />
         </Switch>
       </App>
